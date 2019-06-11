@@ -31,9 +31,8 @@ app.listen(3001, function() {
     console.log(req.body.date)
     if(req.body.name===undefined||req.body.surname===undefined||req.body.email===undefined||req.body.date===undefined){
       console.log('Data undefined!')
-      res.status(400).send({
-        message: 'Data undefined!'
-     });
+      res.status(400);
+      res.send('Data undefined!');
     }
     else{
       let entry ={

@@ -3,9 +3,36 @@
   align-content: center
 }
 
+.Header{
+  padding: 20px;
+  text-align: center;
+  background: #5182ff;
+  color: white;
+  font-size: 15;
+}
+.main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .FieldsContainer{
+  padding: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: ". ." ". ." ". ." ". .";
+  align-content: center;
+}
+
+.InputErrorMessage{
+  align-self: center;
+  font-size: 10px
+
+}
+.TextDataInput{
+  align-self: center;
+  margin: 15px;
+}
+.FieldDec{
+  align-self: center;
 }

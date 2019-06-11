@@ -69,10 +69,14 @@ class App extends Component{
                       date:this.state.date
                     })
                     .then(function (response) {
-                     alert('data send ' +JSON.stringify(response.data.message));
+                     alert('data send ' + '\n'+JSON.stringify(response.data.message));
                     })
                     .catch(function (error) {
-                      alert(error);
+                      let message=''
+                      if(error.response.data!=='')
+                        message =error.response.data;
+                      
+                      alert(error +'\n'+message);
                     });
        
       }
@@ -83,6 +87,12 @@ class App extends Component{
   render(){
   return (
     <div className="App">
+      <header className="Header">
+        Simple form 
+        </header>
+      <div className="main">
+      <div >
+      </div>
       <div className="FieldsContainer">
         <div className="FieldDec">
           Imię
@@ -93,7 +103,7 @@ class App extends Component{
                         type='text'>
           </AddTextData>
           </div>
-          <div style={this.state.nameError ? {display: ''}:{visibility:'hidden'}}>
+          <div className="InputErrorMessage" style={this.state.nameError ? {display: ''}:{visibility:'hidden'}}>
             Name have to be filled
           </div>
           <div className="FieldDec">
@@ -105,7 +115,7 @@ class App extends Component{
                         type='text'>
                         </AddTextData>
           </div>
-          <div style={this.state.surnameError ? {display: ''}:{visibility:'hidden'}}>
+          <div className="InputErrorMessage" style={this.state.surnameError ? {display: ''}:{visibility:'hidden'}}>
             Surname have to be filled
           </div>  
           <div className="FieldDec">
@@ -117,7 +127,7 @@ class App extends Component{
                         type='text'>
           </AddTextData>
           </div>
-          <div style={this.state.mailError ? {display: ''}:{visibility:'hidden'}}>
+          <div className="InputErrorMessage" style={this.state.mailError ? {display: ''}:{visibility:'hidden'}}>
             Invalid email
           </div>
           <div className="FieldDec">
@@ -129,9 +139,12 @@ class App extends Component{
                         type='date'>
           </AddTextData>
           </div>
-          <div style={this.state.dateError ? {display: ''}:{visibility:'hidden'}}>
+          <div className="InputErrorMessage" style={this.state.dateError ? {display: ''}:{visibility:'hidden'}}>
             Invalid date
           </div>
+      </div>
+      <div>
+      </div>
       </div>
             <Button disabled={this.state.dateError || this.state.mailError ||this.state.nameError||this.state.surnameError} 
                   style={{margin:'auto', display:'block'}}
